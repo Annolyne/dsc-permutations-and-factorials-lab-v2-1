@@ -42,14 +42,18 @@ What you'll do below is:
 
 ```python
 def factorial(n):
-    None
+    prod = 1
+    while n >= 1:
+        prod = prod * n
+        n = n - 1
+    return prod
 ```
 
 Now, test your function with n=20
 
 
 ```python
-None
+factorial(20) 
 ```
 
 Just so you know, Python has a built-in function `factorial` in the  `math` library as well! Let's use our own function in this lab, but just use the `math` function once to check your previous answer!
@@ -58,7 +62,7 @@ Just so you know, Python has a built-in function `factorial` in the  `math` libr
 ```python
 import math 
 
-None
+math.factorial(20)
 ```
 
 ## Some Practice on Permutations
@@ -77,19 +81,19 @@ Hint: a permutation with repetition is needed here, with formula $\dfrac{n!}{n_1
 
 
 ```python
-app_num = None
+app_num = factorial(6) # 6 total students (3 male + 3 female)
 app_num
 ```
 
 
 ```python
-app_denom = None
-app_denom
+app_denom = factorial(3)*factorial(3) # 2 groups, with 3 students each
+print(app_denom)
 ```
 
 
 ```python
-app_total = None
+app_total = app_num/app_denom
 app_total
 ```
 
@@ -103,7 +107,7 @@ So what should go in the denominator?
 
 
 ```python
-denom_phone = None
+denom_phone = 10**4 # Each of the 4 digits can be a number between 0 and 9 (10 possible numbers)
 denom_phone
 ```
 
@@ -111,13 +115,13 @@ And the numerator?
 
 
 ```python
-numer_phone = None
+numer_phone = 5 # 5 tries at unlocking the phone
 numer_phone
 ```
 
 
 ```python
-prob_unlock = None
+prob_unlock = numer_phone/denom_phone
 prob_unlock
 ```
 
@@ -125,19 +129,19 @@ Right before you lost your phone you ate a pretzel, and you are pretty sure a gr
 
 
 ```python
-denom_phone_smudge = None 
+denom_phone_smudge = factorial(4) #or math.factorial(4) - every combo of 3, 4, 7, 8
 denom_phone_smudge
 ```
 
 
 ```python
-numer_phone_smudge = None
+numer_phone_smudge = 5 # 5 tries at unlocking the phone
 numer_phone_smudge
 ```
 
 
 ```python
-prob_unlock_smudge = None
+prob_unlock_smudge = numer_phone_smudge/denom_phone_smudge
 prob_unlock_smudge
 ```
 
@@ -149,19 +153,19 @@ Now, imagine you chose an iphone access code containing 3 different numbers, wit
 
 
 ```python
-denom_phone_smudge_2 = None
+denom_phone_smudge_2 = ((4*3*2*1)/2) * 3 #or use math.factorial(4) / 2 identical numbers * 3 possible reused numbers
 denom_phone_smudge_2
 ```
 
 
 ```python
-numer_phone_smudge_2 = None 
+numer_phone_smudge_2 = 5 # 5 tries at unlocking the phone
 numer_phone_smudge_2
 ```
 
 
 ```python
-prob_unlock_smudge_2 = None
+prob_unlock_smudge_2 = numer_phone_smudge_2/denom_phone_smudge_2
 prob_unlock_smudge_2
 ```
 
@@ -175,7 +179,7 @@ First, calculate the sample space. Recall that replacement is possible here.
 
 
 ```python
-sample_space_fh = None
+sample_space_fh = 6**5 # 5 dice, each can be a number between 1-6
 sample_space_fh
 ```
 
@@ -188,13 +192,13 @@ Next, calculate the event space. The best way to think of the event space here i
 
 
 ```python
-ways_to_throw_given_fh= None # permutation with repetitions
+ways_to_throw_given_fh= factorial(5)/ (factorial(3)* factorial(2)) # permutation with repetitions
 ways_to_throw_given_fh
 ```
 
 
 ```python
-diff_fhses = None
+diff_fhses = math.factorial(6)/math.factorial(4) # P_{k}^{n}= n!/(n-k)! = (6!)/(6-2)!
 diff_fhses
 ```
 
@@ -202,7 +206,7 @@ Then the event space is
 
 
 ```python
-event_space_fh =  None
+event_space_fh =  ways_to_throw_given_fh * diff_fhses
 event_space_fh
 ```
 
@@ -210,8 +214,7 @@ event_space_fh
 
 
 ```python
-prob_fh = None
-
+prob_fh = event_space_fh/sample_space_fh
 prob_fh
 ```
 
@@ -271,7 +274,7 @@ As a last step, check that the result you obtain with the `factorial_recursion` 
 
 
 ```python
-# Your code here 
+factorial(3)
 ```
 
 Good job! 
